@@ -1,0 +1,12 @@
+{
+  "welcome": "Welcome to my app!",
+  "about": "About",
+  "contact": "Contact",
+
+  "LoginForm": "---------------LoginForm----------------------",
+  "Email": "Email",
+  "Password": "Password",
+  "Invalid email address": "Invalid email address",
+  "Required": "Required",
+  "Password must be at least 6 letters": "Password must be at least 6 letters"
+}

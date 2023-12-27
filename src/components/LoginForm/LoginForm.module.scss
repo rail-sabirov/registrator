@@ -1,0 +1,11 @@
+.field-error-message {
+    font-size: .75rem;
+    color: red;
+}
+
+label {
+    &:first-child {
+        margin-inline-start: 10px;
+    
+    }
+}

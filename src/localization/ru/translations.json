@@ -1,0 +1,12 @@
+{
+  "welcome": "Добро пожаловать в мое приложение!",
+  "about": "О приложении",
+  "contact": "Контакты",
+
+  "LoginForm": "---------------LoginForm----------------------",
+  "Email": "Email",
+  "Password": "Пароль",
+  "Invalid email address": "Введите правильный email",
+  "Required": "Поле обязательное для заполнения",
+  "Password must be at least 6 letters": "Пароль должен быть не менее 6 символов"
+}
