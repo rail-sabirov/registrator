@@ -1,23 +1,20 @@
 import './App.css'
-import { useTranslation } from 'react-i18next'
 import LanguageSelector from './components/LanguageSelector/LanguageSelector'
 import { LoginPage } from './pages/LoginPage/LoginPage';
+import useLocalStorageLanguage from './hooks/useLocalStorageLanguage.hook';
 
 
 function App() {
-  const { t } = useTranslation();
+    useLocalStorageLanguage();
 
-  return (
-    <>
-      <div>
-        <h2>{t('welcome')}</h2>
-        <p>{t('about')}</p>
-        <p>{t('contact')}</p>
-        <LanguageSelector/>
-      </div>
-      <LoginPage />
-    </>
-  )
+    return (
+        <>
+            <div>
+                <LanguageSelector />
+            </div>
+            <LoginPage />
+        </>
+    )
 }
 
-export default App
+export default App;

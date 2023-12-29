@@ -1,0 +1,15 @@
+.logo {
+    all: unset;
+
+    display: flex;
+    justify-content: left;
+    cursor: pointer;
+
+    span {
+        font-size: 26px;
+        align-self: center;
+        margin-inline-start: 1rem;
+        color: #383838;
+        font-weight: 400;
+    }
+}

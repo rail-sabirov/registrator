@@ -4,6 +4,7 @@ import { initReactI18next } from 'react-i18next';
 import en from './en/translations.json';
 import ru from './ru/translations.json';
 
+// Поддерживаемые языки
 const resources = {
     en: {
         translation: en,
@@ -14,6 +15,7 @@ const resources = {
     }
 };
 
+// Инициализация, английский по умолчанию
 i18n.use(initReactI18next).init({
     resources,
     lng: 'en',

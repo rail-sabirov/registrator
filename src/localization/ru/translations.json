@@ -4,9 +4,12 @@
   "contact": "Контакты",
 
   "LoginForm": "---------------LoginForm----------------------",
-  "Email": "Email",
+  "Welcome to Fax Registrator!": "Добро пожаловать \nв Fax Registrator!",
+  "Please sign-in to your account and start the adventure": "Пожалуйста, войдите в свою учетную запись",
+  "Email": "Адрес электронной почты (Email)",
   "Password": "Пароль",
   "Invalid email address": "Введите правильный email",
   "Required": "Поле обязательное для заполнения",
-  "Password must be at least 6 letters": "Пароль должен быть не менее 6 символов"
+  "Password must be at least 6 letters": "Пароль должен быть не менее 6 символов",
+  "Login": "Войти"
 }

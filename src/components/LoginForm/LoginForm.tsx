@@ -1,63 +1,73 @@
-// Render Prop
-import styles from './LoginForm.module.scss';
-import cn from 'classnames';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useTranslation } from 'react-i18next';
+import * as Yup from 'yup';
+import cn from 'classnames';
+import styles from './LoginForm.module.scss';
+import Button from '../Button/Button';
 
-const LoginForm = () => {
+const LoginForm = ({ onServerError }) => {
     const acceptedFields = { email: '', password: '' };
     const { t } = useTranslation();
     const submitHandler = (values, { setSubmitting }) => {
         setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+            onServerError(JSON.stringify(values, null, 2));
             setSubmitting(false);
         }, 400);
     };
 
-    const validator = (values) => {
-        const errors = { email: '', password: '' };
+    // Схема для проверки полей формы
+    const validationSchema = Yup.object().shape({
+        email: Yup.string()
+            .email(t('Invalid email address'))
+            .required(t('Required')),
 
-        if (!values.email) {
-            errors.email = t('Required');
+        password: Yup.string()
+            .min(6, t('Password must be at least 6 letters'))
+            .required(t('Required'))
+    });
 
-        } else {
-            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-                errors.email = t('Invalid email address');
-            }
-        }
-
-        if (!values.password) {
-            errors.password = t('Require');
-        } else {
-            if (values.password.length < 6) {
-                errors.password = t('Password must be at least 6 letters');
-            }
-        }
-
-        return errors;
-    };
-
-    const formTemplate = ({ isSubmitting }) => {
+    // Шаблон формы
+    const formTemplate = ({ isSubmitting, errors }) => {
         return (
-            <Form>
-                <label htmlFor="email">{t('Email')}</label>
-                <Field type="email" name="email" id="email" />
-                <ErrorMessage name="email" render={msg => <div className={cn(styles['field-error-message'])}>{msg}</div>} />
+            <div className={cn(styles['login-container'])}>
+                <Form className={cn(styles['login-form'])}>
+                    <label htmlFor="email">{t('Email')}</label>
+                    <Field type="email"
+                        name="email"
+                        id="email"
+                        className={cn('input', {
+                            [styles['error']]: errors.email
+                        })} />
+                    <ErrorMessage name="email"
+                        className={cn(styles['field-error-message'])}
+                        component='div' />
 
-                <label htmlFor="password">{t('Password')}</label>
-                <Field type="password" name="password" id="password" />
-                <ErrorMessage name="password" render={msg => <div className={cn(styles['field-error-message'])}>{msg}</div>} />
+                    <label htmlFor="password">{t('Password')}</label>
+                    <Field type="password"
+                        name="password"
+                        id="password"
+                        className={cn('input', {
+                            [styles['error']]: errors.email
+                        })} />
+                    <ErrorMessage name="password"
+                        component='div'
+                        className={cn(styles['field-error-message'])} />
 
-                <button type="submit" disabled={isSubmitting}>
-                    Submit
-                </button>
-            </Form>
+                    <Button
+                        type='submit'
+                        className={styles['submit-button']}
+                        disabled={isSubmitting}>
+                        {t('Login')}
+                    </Button>
+                </Form>
+            </div>
+
         )
     };
 
     return (
         <div>
-            <Formik initialValues={acceptedFields} validate={validator} onSubmit={submitHandler}>
+            <Formik initialValues={acceptedFields} validationSchema={validationSchema} onSubmit={submitHandler}>
                 {formTemplate}
             </Formik>
         </div>

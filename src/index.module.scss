@@ -1,4 +1,16 @@
 :root {
+  --color-red: #ff3e1d;
+  --bg-body: #f5f5f9;
+  --color-white: #fff;
+  --label-color: #566a7f;
+  --text-color: #697a8d;
+  --input-border-color: #c7cdd4;
+  --border-radius: 0.375rem;
+  --botton-bg-blue: #5f61e6;
+  --box-shadow: 0 2px 6px 0 rgba(67, 89, 113, 0.12);
+  --bg-red: #ff5722;
+
+
   font-family: 'Noto Sans', sans-serif;
 
   line-height: 1.5;
@@ -12,6 +24,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 a {
@@ -30,6 +46,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  font-size: 15px;
+  background-color: var(--bg-body);
 }
 
 h1 {

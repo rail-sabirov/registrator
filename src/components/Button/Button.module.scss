@@ -1,0 +1,8 @@
+.button {
+    color: var(--color-white);
+    background-color: var(--botton-bg-blue);
+
+    &[color=red] {
+        background-color: red;
+    }
+}

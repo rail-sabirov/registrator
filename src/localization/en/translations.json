@@ -4,9 +4,12 @@
   "contact": "Contact",
 
   "LoginForm": "---------------LoginForm----------------------",
+  "Welcome to Fax Registrator!": "Welcome to Fax Registrator!",
+  "Please sign-in to your account and start the adventure": "Please sign-in to your account and start the adventure",
   "Email": "Email",
   "Password": "Password",
   "Invalid email address": "Invalid email address",
   "Required": "Required",
-  "Password must be at least 6 letters": "Password must be at least 6 letters"
+  "Password must be at least 6 letters": "Password must be at least 6 letters",
+  "Login": "Login"
 }

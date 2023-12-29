@@ -1,11 +1,56 @@
-.field-error-message {
-    font-size: .75rem;
-    color: red;
-}
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    padding: 24px;
 
-label {
-    &:first-child {
-        margin-inline-start: 10px;
-    
+
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+
+        label {
+            display: flex;
+            justify-content: flex-start;
+            font-size: 0.8rem;
+            color: var(--label-color);
+            margin-bottom: .5rem;
+
+            &:not(:first-child) {
+                margin-top: 1rem;
+            }
+        }
+
+        input {
+            display: flex;
+            font-size: 1rem;
+            padding: 0.43rem 0.75rem;
+            border: 1px solid var(--input-border-color);
+            border-radius: var(--border-radius);
+
+            &:focus {
+                border-color: #696cff
+            }
+
+
+            &.error {
+                border-color: var(--color-red)
+            }
+        }
+
+        .field-error-message {
+            display: flex;
+            font-size: 85%;
+            color: var(--color-red);
+            justify-content: flex-start;
+            margin-top: .4rem;
+        }
+
+        .submit-button {
+            margin-top: 3rem;
+        }
     }
 }
