@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 
 const LanguageSelector = () => {
     const key = 'language';
-    const lang = localStorage.getItem('language').toString();
     const langs = {
         'true': 'en',
         'false': 'ru'
@@ -21,8 +20,9 @@ const LanguageSelector = () => {
     };
 
     useEffect(() => {
-        if (lang == 'ru') {
-            setCheckbox(true);
+        const lang = localStorage.getItem("language");
+        if (lang && lang.toString() == "ru") {
+          setCheckbox(true);
         }
     }, []);
 
