@@ -2,6 +2,7 @@ import { useState } from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm'
 import Logo from '../../components/Logo/Logo';
 import styles from './LoginPage.module.scss'
+import './LoginPage.parentStyles.scss';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 

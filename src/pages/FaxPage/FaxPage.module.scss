@@ -1,0 +1,9 @@
+@import '/style-vaiables.scss';
+
+.fax-page {
+    all: unset;
+
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+}

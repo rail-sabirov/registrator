@@ -1,6 +1,17 @@
+@import "/style-vaiables.scss";
+
 .button {
-    color: var(--color-white);
-    background-color: var(--botton-bg-blue);
+    color: $colorWhite;
+    background-color: $buttonBgBlue;
+    font-size: 1rem;
+    padding: 0.68rem 1rem;
+    border-radius: $borderRadius;
+    border: none;
+
+    &:disabled {
+        cursor: no-drop;
+        background-color: lighten($buttonBgBlue, 10%);
+    }
 
     &[color=red] {
         background-color: red;

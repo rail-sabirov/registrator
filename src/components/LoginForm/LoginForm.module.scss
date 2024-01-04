@@ -1,3 +1,5 @@
+@import '/style-vaiables.scss';
+
 .login-container {
     display: flex;
     flex-direction: column;
@@ -16,7 +18,7 @@
             display: flex;
             justify-content: flex-start;
             font-size: 0.8rem;
-            color: var(--label-color);
+            color: $labelColor;
             margin-bottom: .5rem;
 
             &:not(:first-child) {
@@ -28,8 +30,8 @@
             display: flex;
             font-size: 1rem;
             padding: 0.43rem 0.75rem;
-            border: 1px solid var(--input-border-color);
-            border-radius: var(--border-radius);
+            border: 1px solid $inputBorderColor;
+            border-radius: $borderRadius;
 
             &:focus {
                 border-color: #696cff
@@ -37,14 +39,14 @@
 
 
             &.error {
-                border-color: var(--color-red)
+                border-color: $colorRed;
             }
         }
 
         .field-error-message {
             display: flex;
             font-size: 85%;
-            color: var(--color-red);
+            color: $colorRed;
             justify-content: flex-start;
             margin-top: .4rem;
         }

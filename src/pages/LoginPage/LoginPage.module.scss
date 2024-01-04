@@ -1,11 +1,13 @@
+@import '/style-vaiables.scss';
+
 .login-page {
     display: flex;
     flex-direction: column;
-    background-color: var(--color-white);
+    background-color: $colorWhite;
     border: none;
-    border-radius: var(--border-radius);
+    border-radius: $borderRadius;
     box-sizing: border-box;
-    box-shadow: var(--box-shadow);
+    box-shadow: $boxShadow;
     width: 400px;
     min-height: 200px;
 
@@ -20,17 +22,14 @@
     .header {
         margin-block-end: 1rem;
         padding: 0 1rem;
-
-        h1 {
-            font-size: 1.3rem;
-            white-space: pre-line;
-        }
+        color: $textColor;
+        text-align: center;
     }
 
     .error-block {
         width: 100%;
-        background-color: var(--bg-red);
-        padding-block: 1rem;
-        color: var(--color-white)
+        background-color: $bgRed;
+        padding: 1rem;
+        color: $colorWhite;
     }
 }

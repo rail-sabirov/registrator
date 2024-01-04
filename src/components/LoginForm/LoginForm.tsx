@@ -27,7 +27,7 @@ const LoginForm = ({ onServerError }) => {
     });
 
     // Шаблон формы
-    const formTemplate = ({ isSubmitting, errors }) => {
+    const formTemplate = ({ isSubmitting, errors, isValidating }) => {
         return (
             <div className={cn(styles['login-container'])}>
                 <Form className={cn(styles['login-form'])}>
@@ -47,7 +47,7 @@ const LoginForm = ({ onServerError }) => {
                         name="password"
                         id="password"
                         className={cn('input', {
-                            [styles['error']]: errors.email
+                            [styles['error']]: errors.password
                         })} />
                     <ErrorMessage name="password"
                         component='div'
@@ -56,7 +56,7 @@ const LoginForm = ({ onServerError }) => {
                     <Button
                         type='submit'
                         className={styles['submit-button']}
-                        disabled={isSubmitting}>
+                        disabled={isSubmitting || Object.keys(errors).length > 0}>
                         {t('Login')}
                     </Button>
                 </Form>
