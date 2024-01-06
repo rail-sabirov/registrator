@@ -2,12 +2,13 @@ import cn from 'classnames';
 import styles from './MainLayout.module.scss';
 import './MainLayout.parentStyles.scss';
 
-import { MainLayoutProps } from './MainLayout.props';
-import Logo from '../../components/Logo/Logo';
 
-const MainLayout = ({ className, children, ...props }: MainLayoutProps) => {
+import Logo from '../../components/Logo/Logo';
+import { Outlet } from 'react-router-dom';
+
+const MainLayout = () => {
     return (
-        <div className={cn(styles['main-layout'], className)} {...props}>
+        <div className={cn(styles['main-layout'])} >
             <header>
                 <Logo type='logo-main-layout' />
 
@@ -30,7 +31,7 @@ const MainLayout = ({ className, children, ...props }: MainLayoutProps) => {
             </header>
 
             <main className={cn(styles['content'])}>
-                {children}
+                <Outlet />
             </main>
 
             <footer>

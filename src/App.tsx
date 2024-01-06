@@ -16,9 +16,9 @@ function App() {
                 <LanguageSelector />
             </div> */}
             {/* <LoginPage /> */}
-            <MainLayout>
+            {/* <MainLayout>
                 <FaxPage />
-            </MainLayout>
+            </MainLayout> */}
         </>
     )
 }
