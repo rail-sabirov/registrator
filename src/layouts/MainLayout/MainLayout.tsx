@@ -4,9 +4,17 @@ import './MainLayout.parentStyles.scss';
 
 
 import Logo from '../../components/Logo/Logo';
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet,  useLocation } from 'react-router-dom';
 
 const MainLayout = () => {
+    // Если перешли в корень, тогда редиректим на страницу с факсами
+    const location = useLocation();
+
+    if (location.pathname == '/') {
+        return <Navigate to="/faxes" replace />        
+    }
+
+    // Выводим Layout
     return (
         <div className={cn(styles['main-layout'])} >
             <header>
@@ -14,8 +22,8 @@ const MainLayout = () => {
 
                 <div className={styles["menu"]}>
                     <ul>
-                        <li><a href="/">Faxes</a></li>
-                        <li><a href="/agences">Agenses</a></li>
+                        <li><a href="/faxes">Faxes</a></li>
+                        <li><a href="/agencies">Agenses</a></li>
                     </ul>
                 </div>
                 <div className={styles["user"]}>
