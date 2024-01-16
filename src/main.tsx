@@ -8,6 +8,7 @@ import { LoginPage } from './pages/LoginPage/LoginPage.tsx'
 import FaxPage from './pages/FaxPage/FaxPage.tsx'
 import MainLayout from './layouts/MainLayout/MainLayout.tsx'
 import { RequireAuth } from './helpers/RequireAuth.tsx'
+import AgencyPage from './pages/AgencyPage/AgencyPage.tsx'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,16 @@ const router = createBrowserRouter([
         path: "agencies",
         element: <h1>Agency List Page</h1>,
       },
+      {
+        path: "agencies/:agencySlug",
+        element: <AgencyPage />,
+      },
+      
+      // При переходе в корень, редиректим на страницу факсов
+      {
+        index: true,
+        element: <Navigate to="/faxes" replace />,
+      }
     ],
   },
 
@@ -37,12 +48,6 @@ const router = createBrowserRouter([
   {
     path: "*",
     element: <h1>404: Error Page</h1>,
-  },
-
-  // При переходе в корень, редиректим на страницу факсов
-  {
-    path: "/",
-    element: <Navigate to="/faxes" replace />,
   },
 ]);
 
