@@ -5,10 +5,14 @@ import styles from './LoginPage.module.scss'
 import './LoginPage.parentStyles.scss';
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
+import useLocalStorageLanguage from '../../hooks/useLocalStorageLanguage.hook';
 
 export const LoginPage = () => {
     const { t } = useTranslation();
     const [errorFromServer, setErrorFromServer] = useState(null);
+
+    // Настроим язык приложения
+    useLocalStorageLanguage();
 
     return (
         <div className={styles['login-page']}>

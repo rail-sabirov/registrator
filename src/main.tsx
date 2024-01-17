@@ -10,6 +10,7 @@ import MainLayout from './layouts/MainLayout/MainLayout.tsx'
 import { RequireAuth } from './helpers/RequireAuth.tsx'
 import AgencyPage from './pages/AgencyPage/AgencyPage.tsx'
 
+
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
         path: "agencies/:agencySlug",
         element: <AgencyPage />,
       },
-      
+
       // При переходе в корень, редиректим на страницу факсов
       {
         index: true,
@@ -53,8 +54,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <I18nextProvider i18n={ i18n }>
-      <RouterProvider router={ router } />
+    <I18nextProvider i18n={i18n}>
+      <RouterProvider router={router} />
     </I18nextProvider>
   </React.StrictMode>,
 )

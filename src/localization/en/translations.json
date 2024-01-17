@@ -11,5 +11,9 @@
   "Invalid email address": "Invalid email address",
   "Required": "Required",
   "Password must be at least 6 letters": "Password must be at least 6 letters",
-  "Login": "Login"
+  "Login": "Login",
+
+  "MainMenu": "-----------------MainMenu----------------------",
+  "Faxes": "Faxes",
+  "Agencies": "Agencies"
 }

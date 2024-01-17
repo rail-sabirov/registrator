@@ -11,5 +11,9 @@
   "Invalid email address": "Введите правильный email",
   "Required": "Поле обязательное для заполнения",
   "Password must be at least 6 letters": "Пароль должен быть не менее 6 символов",
-  "Login": "Войти"
+  "Login": "Войти",
+
+  "MainMenu": "-----------------MainMenu----------------------",
+  "Faxes": "Факсы",
+  "Agencies": "Агенства"
 }

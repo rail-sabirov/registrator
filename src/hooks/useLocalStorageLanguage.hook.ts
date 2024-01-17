@@ -6,6 +6,7 @@ function useLocalStorageLanguage() {
 	const { i18n } = useTranslation();
 
 	useEffect(() => {
+		// Получаем сохраненный язык 
 		const storedLang = localStorage.getItem(lsKey);
 		const langToSet = storedLang || 'en';
 

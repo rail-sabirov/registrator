@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import formTemplate from "./AgencyPage.form-template";
 import validationSchema from './AgencyPage.validation';
+import LanguageSelector from '../../components/LanguageSelector/LanguageSelector';
 
 
 const AgencyPage = () => {
@@ -25,10 +26,11 @@ const AgencyPage = () => {
     console.log(values);
   };
 
-  
+
   // Инициализация и вывод формы
   return (
     <>
+      <LanguageSelector />
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

@@ -4,10 +4,14 @@ import './MainLayout.parentStyles.scss';
 
 
 import Logo from '../../components/Logo/Logo';
-import { NavLink, Navigate, Outlet, useLocation } from 'react-router-dom';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import MainMenu from '../../components/MainMenu/MainMenu';
+import useLocalStorageLanguage from '../../hooks/useLocalStorageLanguage.hook';
 
 const MainLayout = () => {
+    // Настроим язык приложения
+    useLocalStorageLanguage();
+
     // Если перешли в корень, тогда редиректим на страницу с факсами
     const location = useLocation();
 
