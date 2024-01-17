@@ -4,14 +4,16 @@ import './MainLayout.parentStyles.scss';
 
 
 import Logo from '../../components/Logo/Logo';
-import { Navigate, Outlet,  useLocation } from 'react-router-dom';
+import { NavLink, Navigate, Outlet, useLocation } from 'react-router-dom';
+import MainMenu from '../../components/MainMenu/MainMenu';
 
 const MainLayout = () => {
     // Если перешли в корень, тогда редиректим на страницу с факсами
     const location = useLocation();
 
+
     if (location.pathname == '/') {
-        return <Navigate to="/faxes" replace />        
+        return <Navigate to="/faxes" replace />
     }
 
     // Выводим Layout
@@ -20,12 +22,7 @@ const MainLayout = () => {
             <header>
                 <Logo type='logo-main-layout' />
 
-                <div className={styles["menu"]}>
-                    <ul>
-                        <li><a href="/faxes">Faxes</a></li>
-                        <li><a href="/agencies">Agenses</a></li>
-                    </ul>
-                </div>
+                <MainMenu />
                 <div className={styles["user"]}>
                     <div className={styles["user-icon"]}>
                         <img src="/public/user-w-icon.svg" alt="User Icon" />
