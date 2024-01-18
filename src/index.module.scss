@@ -17,18 +17,26 @@
   -moz-osx-font-smoothing: grayscale;
 
   min-width: 400px;
+
+
 }
 
 * {
   box-sizing: border-box;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-width: 320px;
-  min-height: 100vh;
-  margin: 0;
-  font-size: 15px;
-  background-color: $bgBody;
+html {
+  body {
+    display: flex;
+    flex-direction: column;
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    font-size: 15px;
+    background-color: $bgBody;
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    overflow-x: hidden;
+    margin-right: calc(-1 * (100vw - 100%));
+  }
 }
