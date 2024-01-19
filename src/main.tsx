@@ -33,6 +33,10 @@ const router = createBrowserRouter([
         element: <h1>Agency List Page</h1>,
       },
       {
+        path: "agencies/new",
+        element: <AgencyPage agency={null} />,
+      },
+      {
         path: "agencies/:agencySlug",
         element: <AgencyPage />,
       },

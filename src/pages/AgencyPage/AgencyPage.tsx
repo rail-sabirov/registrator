@@ -1,50 +1,52 @@
-import { Formik } from 'formik';
-import formTemplate from "./AgencyPage.form-template";
-import validationSchema from './AgencyPage.validation';
 import LanguageSelector from '../../components/LanguageSelector/LanguageSelector';
 
+import { useState } from 'react';
+import AgencyEdit from '../../components/AgencyEdit/AgencyEdit';
+import AgencyInfo from '../../components/AgencyInfo/AgencyInfo';
+import { AgencyPageProps } from './AgencyPageProps';
 
-const AgencyPage = () => {
-  const initialValues = {
-    name: "",
 
-    fax1: "",
-    fax2: "",
-    fax3: "",
-    fax4: "",
-    defaultFax: "",
+const AgencyPage = ({ agency = {} }: AgencyPageProps) => {
+  const [editMode, setEditMode] = useState(false);
 
-    phone1: "",
-    phone2: "",
-    phone3: "",
+  if (agency) {
+    return (
+      <>
+        <LanguageSelector />
+        <hr />
+        {editMode
+          ? <>
+            <h2>Агенство - Редактирование</h2>
+            <AgencyEdit switchEditMode={setEditMode} />
+          </>
+          : <>
+            <h2>Агенство - Информация</h2>
+            <button onClick={() => setEditMode(true)}>Редактировать</button>
+            <AgencyInfo />
+          </>
+        }
 
-    email: "",
-  };
 
-  const submitHandler = (values) => {
-    // Обработка отправки формы, например, отправка данных на сервер
-    console.log(values);
-  };
 
+        <hr />
+        <div className="agency-deatails">
+          <h2>Отправленные факсы</h2>
+          <p>Здесь выводятся детали Агенства если оно уже использовалось для отправки факса</p>
+        </div>
+      </>
+    );
+
+  } else {
+    return (
+      <>
+        <h2>Новое Агенство</h2>
+        <AgencyEdit switchEditMode={setEditMode} />
+      </>
+    )
+  }
 
   // Инициализация и вывод формы
-  return (
-    <>
-      <LanguageSelector />
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={submitHandler}
-      >
-        {formTemplate}
-      </Formik>
 
-      <div className="agency-deatails">
-        <h2>Agency Details</h2>
-        <p>Здесь выводятся детали Агенства если оно уже использовалось для отправки факса</p>
-      </div>
-    </>
-  );
 };
 
 export default AgencyPage;
