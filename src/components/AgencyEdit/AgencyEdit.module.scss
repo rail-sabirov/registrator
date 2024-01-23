@@ -1,6 +1,37 @@
+@import '/style-vaiables.scss';
+
 form {
 
-    .form-field {
-        border: 2px dashed blue;
+    .fax-numbers,
+    .phone-numbers {
+        border: 1px solid $borderColor;
+        border-radius: $borderRadius;
+        padding: 20px;
+        margin: 40px 0 20px;
+        position: relative;
+
+        &>span {
+            position: absolute;
+            top: -30px;
+        }
+    }
+
+
+
+    .row {
+        display: flex;
+        flex-direction: column;
+
+        input {
+            outline: none;
+            border: 1px solid $borderColor;
+            padding: 7px 14px;
+            line-height: 22px;
+            border-radius: 6px;
+
+            &:focus {
+                border-color: $focusBorderColor;
+            }
+        }
     }
 }
