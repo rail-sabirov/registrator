@@ -3,10 +3,9 @@ import validationSchema from './AgencyEdit.validation';
 import cn from 'classnames';
 import styles from "./AgencyEdit.module.scss";
 import { Formik } from 'formik';
-import { AgencyEditProps } from './AgencyEditProps';
 
 
-export default function AgencyEdit({ switchEditMode }: AgencyEditProps) {
+export default function AgencyEdit() {
 
     const initialValues = {
         name: "",
@@ -40,7 +39,6 @@ export default function AgencyEdit({ switchEditMode }: AgencyEditProps) {
             >
                 {formTemplate}
             </Formik>
-            <button type='button' onClick={() => switchEditMode(false)} style={{ marginTop: '20px', backgroundColor: '#aeaeef' }}>Выход из режима редактирования</button>
         </div>
     )
 }

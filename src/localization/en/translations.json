@@ -15,5 +15,29 @@
 
   "MainMenu": "-----------------MainMenu----------------------",
   "Faxes": "Faxes",
-  "Agencies": "Agencies"
+  "Agencies": "Agencies",
+
+  "AgencyEditFormTemplate": "------------- Agency Edit Form Template -----------------",
+  "AgencyName": "Agency Name",
+  "Phones": "Phones",
+  "PhoneNumber": "Phone Number",
+  "Phone1": "Phone #1",
+  "Phone2": "Phone #2",
+  "Phone3": "Phone #3",
+
+  "Default": "Default",
+  "FaxNumber": "Fax Number",
+  "Fax1": "Fax #1",
+  "Fax2": "Fax #2",
+  "Fax3": "Fax #3",
+  "Fax4": "Fax #4",
+  "Comment": "Comment",
+  "Save": "Save",
+
+  "AgencyPage": "----------- Agency Page ---------------------------------",
+  "AgencyEditPage": "Agency - Edit",
+  "AgencyInfoPage": "Agency - Info",
+  "ExitEditMode": "Exit Edit Mode",
+  "Edit": "Edit",
+  "NewAgencyPage": "New Agency"
 }

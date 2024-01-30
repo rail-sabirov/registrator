@@ -1,37 +1,251 @@
 @import '/style-vaiables.scss';
 
-form {
+@mixin groupBorderAndTitle {
+    border: 1px solid $borderColor;
+    border-radius: $borderRadius;
+    padding: 20px;
+    margin: 40px 0 20px;
+    position: relative;
 
-    .fax-numbers,
-    .phone-numbers {
-        border: 1px solid $borderColor;
-        border-radius: $borderRadius;
-        padding: 20px;
-        margin: 40px 0 20px;
-        position: relative;
-
-        &>span {
-            position: absolute;
-            top: -30px;
-        }
+    &>span {
+        font-weight: bold;
+        position: absolute;
+        top: -30px;
     }
+}
 
+@mixin formRow {
+    .row:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+}
 
+@mixin groupHeaders {
+    margin-bottom: 1rem;
+    font-size: .7rem;
+    text-transform: uppercase;
+    border-bottom: 1px dashed #e1e1e1;
+    align-items: end;
+    padding-bottom: .5rem;
+}
+
+form {
+    @include formRow;
 
     .row {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
 
-        input {
+        label {
+            flex-shrink: 0;
+            margin-inline-end: 1rem;
+            align-self: center;
+            min-width: 6rem;
+            text-align: end;
+        }
+
+        input[type=text],
+        input[type=tel],
+        input[type=email],
+        textarea {
             outline: none;
             border: 1px solid $borderColor;
             padding: 7px 14px;
             line-height: 22px;
             border-radius: 6px;
+            flex: 1;
 
             &:focus {
                 border-color: $focusBorderColor;
             }
         }
     }
+
+    .main {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 10px;
+
+        border: 1px solid $borderColor;
+        border-radius: $borderRadius;
+        padding: 20px;
+
+
+        label {
+            text-align: end;
+            align-self: start;
+            padding-top: 0.3rem;
+        }
+
+        .input-block {
+            input {
+                outline: none;
+                border: 1px solid $borderColor;
+                padding: 7px 14px;
+                line-height: 22px;
+                border-radius: 6px;
+                width: 100%;
+
+
+
+                &[type=email] {
+                    max-width: 30rem;
+                }
+
+                &:focus {
+                    border-color: $focusBorderColor;
+                }
+            }
+        }
+    }
+
+    .phone-fax {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+
+        .group-headers {
+            @include groupHeaders;
+
+            .phone {
+                display: flex;
+                justify-content: center;
+                flex: 1;
+            }
+        }
+
+        .phone-numbers {
+            @include groupBorderAndTitle;
+            flex: 4 0 auto;
+        }
+
+        .fax-numbers {
+            @include groupBorderAndTitle;
+            flex: 8 0 auto;
+
+            .group-headers {
+                @include groupHeaders;
+
+                .default {
+                    display: flex;
+                    flex: 1 1 auto;
+                    justify-content: start;
+                }
+
+                .fax {
+                    display: flex;
+                    flex: 11 0 auto;
+                    justify-content: center;
+                }
+            }
+
+            .row {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                .left-side {
+                    display: flex;
+                    flex: 1 0 auto;
+                    justify-content: center;
+                    align-items: center;
+
+                    input[type="radio"] {
+                        transform: scale(1.5);
+                        align-self: baseline;
+                    }
+                }
+
+                .right-side {
+                    display: flex;
+                    flex: 11 0 auto;
+                }
+            }
+
+        }
+
+        .fax-numbers2 {
+            @include groupBorderAndTitle;
+            flex: 8 0 auto;
+
+            .rows {
+                display: grid;
+                grid-template-columns: 80px auto 1fr;
+
+                .header {
+                    display: grid;
+                    font-size: .7rem;
+                    text-transform: uppercase;
+                    align-items: end;
+                    justify-items: center;
+                    text-align: center;
+                }
+
+                .colspan3 {
+                    display: grid;
+                    grid-column: span 3;
+                    border-bottom: 1px dashed #e1e1e1;
+                    width: 100%;
+                    padding-top: .4rem;
+                    margin-bottom: 1rem;
+                }
+
+                label {
+                    align-self: flex-start;
+                    padding: 0 1rem;
+                    padding-top: 0.4rem;
+                }
+
+                input[type=radio] {
+                    display: flex;
+                    justify-self: center;
+                    align-self: center;
+                    width: 2rem;
+                    height: 2rem;
+                    margin: 0;
+                    margin-top: -1.5rem;
+                }
+
+                .right-side {
+                    margin-bottom: 1rem;
+
+                    input {
+                        width: 100%;
+                        outline: none;
+                        border: 1px solid $borderColor;
+                        padding: 7px 14px;
+                        line-height: 22px;
+                        border-radius: 6px;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .comments {
+        @include groupBorderAndTitle;
+
+        textarea {
+            outline: none;
+            border: none;
+            padding: 0;
+            line-height: 22px;
+            border-radius: 6px;
+            flex: 1;
+
+            &:focus {
+                border-color: $focusBorderColor;
+            }
+        }
+    }
+
+    .submit-button {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+    }
+
+
+
 }
