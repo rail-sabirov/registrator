@@ -1,0 +1,9 @@
+@import '/style-vaiables.scss';
+
+.field-error-message {
+	display: flex;
+	font-size: 85%;
+	color: $colorRed;
+	justify-content: flex-start;
+	margin-top: .4rem;
+}

@@ -1,5 +1,5 @@
 import formTemplate from './AgencyEdit.form-template';
-import validationSchema from './AgencyEdit.validation';
+import validate from './AgencyEdit.validation';
 import cn from 'classnames';
 import styles from "./AgencyEdit.module.scss";
 import { Formik } from 'formik';
@@ -32,13 +32,18 @@ export default function AgencyEdit() {
 
     return (
         <div className={cn(styles['agency'], styles['edit-mode'])}>
+
             <Formik
                 initialValues={initialValues}
-                validationSchema={validationSchema}
+                validationSchema={validate()}
                 onSubmit={submitHandler}
             >
-                {formTemplate}
+                {({ values, errors }) => (
+                    formTemplate(values, errors)
+                )}
+
             </Formik>
+
         </div>
     )
 }

@@ -39,5 +39,6 @@
   "AgencyInfoPage": "Агенство - Информация",
   "ExitEditMode": "Выйти из режима редактирования",
   "Edit": "Редактировать",
-  "NewAgencyPage": "Новое Агенство"
+  "NewAgencyPage": "Новое Агенство", 
+  "Phone number must contain 10 digits": "Телефон должен содержать 10 цифр"
 }

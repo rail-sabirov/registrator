@@ -1,4 +1,5 @@
 @import '/style-vaiables.scss';
+@import '/common-classes.module.scss';
 
 @mixin groupBorderAndTitle {
     border: 1px solid $borderColor;
@@ -29,6 +30,18 @@
     padding-bottom: .5rem;
 }
 
+.default-fax-error {
+    display: grid;
+    background-color: $colorRed;
+    color: $colorWhite;
+    justify-content: center;
+    padding: 0.4rem;
+    border-radius: 0.3rem;
+    margin-bottom: 2rem;
+
+}
+
+
 form {
     @include formRow;
 
@@ -53,6 +66,8 @@ form {
             padding: 7px 14px;
             line-height: 22px;
             border-radius: 6px;
+            font-size: 1rem;
+            font-family: "Noto Sans", sans-serif;
             flex: 1;
 
             &:focus {
@@ -85,6 +100,7 @@ form {
                 line-height: 22px;
                 border-radius: 6px;
                 width: 100%;
+                font-size: 1rem;
 
 
 
@@ -117,54 +133,32 @@ form {
         .phone-numbers {
             @include groupBorderAndTitle;
             flex: 4 0 auto;
+
+            .phone-fields {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                column-gap: 1.2rem;
+                row-gap: 1rem;
+
+                label {
+                    display: flex;
+                    align-self: flex-start;
+                    padding-top: .3rem;
+                }
+
+                input {
+                    width: 100%;
+                    outline: none;
+                    border: 1px solid $borderColor;
+                    padding: 7px 14px;
+                    line-height: 22px;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                }
+            }
         }
 
         .fax-numbers {
-            @include groupBorderAndTitle;
-            flex: 8 0 auto;
-
-            .group-headers {
-                @include groupHeaders;
-
-                .default {
-                    display: flex;
-                    flex: 1 1 auto;
-                    justify-content: start;
-                }
-
-                .fax {
-                    display: flex;
-                    flex: 11 0 auto;
-                    justify-content: center;
-                }
-            }
-
-            .row {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-
-                .left-side {
-                    display: flex;
-                    flex: 1 0 auto;
-                    justify-content: center;
-                    align-items: center;
-
-                    input[type="radio"] {
-                        transform: scale(1.5);
-                        align-self: baseline;
-                    }
-                }
-
-                .right-side {
-                    display: flex;
-                    flex: 11 0 auto;
-                }
-            }
-
-        }
-
-        .fax-numbers2 {
             @include groupBorderAndTitle;
             flex: 8 0 auto;
 
@@ -184,6 +178,10 @@ form {
                 .colspan3 {
                     display: grid;
                     grid-column: span 3;
+                }
+
+                .hr {
+                    display: grid;
                     border-bottom: 1px dashed #e1e1e1;
                     width: 100%;
                     padding-top: .4rem;
@@ -204,6 +202,11 @@ form {
                     height: 2rem;
                     margin: 0;
                     margin-top: -1.5rem;
+                    cursor: pointer;
+
+                    &.radio-input-filled {
+                        outline: 2px dashed red;
+                    }
                 }
 
                 .right-side {
@@ -216,6 +219,7 @@ form {
                         padding: 7px 14px;
                         line-height: 22px;
                         border-radius: 6px;
+                        font-size: 1rem;
                     }
                 }
             }
