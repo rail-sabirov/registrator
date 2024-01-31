@@ -22,7 +22,7 @@ const LanguageSelector = () => {
     useEffect(() => {
         const lang = localStorage.getItem("language");
         if (lang && lang.toString() == "ru") {
-          setCheckbox(true);
+            setCheckbox(true);
         }
     }, []);
 
@@ -33,6 +33,7 @@ const LanguageSelector = () => {
                 <input type="checkbox"
                     onChange={changeLang}
                     checked={checkbox}
+                    name="language-switcher-01"
                 />
                 <span
                     className={cn(styles['slider'], styles['round'])}

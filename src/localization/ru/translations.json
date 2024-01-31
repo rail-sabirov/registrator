@@ -39,6 +39,12 @@
   "AgencyInfoPage": "Агенство - Информация",
   "ExitEditMode": "Выйти из режима редактирования",
   "Edit": "Редактировать",
-  "NewAgencyPage": "Новое Агенство", 
-  "Phone number must contain 10 digits": "Телефон должен содержать 10 цифр"
+  "NewAgencyPage": "Новое Агенство",
+  "Phone number must contain 10 digits": "Телефон должен содержать 10 цифр",
+  "Fax number must contain 10 digits": "Номер факса должен содержать 10 цифр",
+  "Enter your fax number": "Поле обязательное для заполнения. Введите номер факса",
+  "Enter the Agency Name": "Поле обязательное для заполнения. Задайте Наименование Агенства",
+  "The agency name must contain at least 3 letters": "Наименование агенства должно содержать не менее 3 букв",
+  "Enter Email": "Введите Email",
+  "Error: No default fax selected!": "Ошибка: Не выбран факс по умолчанию!"
 }

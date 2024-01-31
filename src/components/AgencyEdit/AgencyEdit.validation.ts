@@ -1,94 +1,34 @@
 import * as Yup from 'yup';
 import { useTranslation } from 'react-i18next';
 
-function validate() {
+type deviceType = 'Phone' | 'Fax';
 
-  const { t} = useTranslation();
+function validate() {
+  const { t } = useTranslation();
+  
+  const phoneFaxRule = (deviceType: deviceType, num: number) => Yup.string().test(
+      `${deviceType}${num}_test`,
+      t(`${deviceType} number must contain 10 digits`),
+      (value) => value == undefined || (value && value.length === 10) ? true : false
+    )
 
   return Yup.object({
   
     name: Yup.string()
-      .required("Задайте Наименование агенства!")
+      .required(t("Enter the Agency Name"))
       //.test("name_require_test", "Задайте Наименование агенства!", (value) => value !== undefined)
-      .test("name_min_3_letter_test", "Наименование агенства должно содержать не менее 3 букв!", (value) => value?.length >= 3),
+      .test("name_min_3_letter_test", t('The agency name must contain at least 3 letters'), (value) => value?.length >= 3),
 
-    email: Yup.string().email("Введите Email"),
+    email: Yup.string().email(t('Enter Email')),
 
-    phone1: Yup.string()
-     .test("phone1_test", t("Phone number must contain 10 digits"), (value) => value == undefined || (value && value.length >= 10) ? true : false),
+    phone1: phoneFaxRule('Phone', 1),
+    phone2: phoneFaxRule('Phone', 2),
+    phone3: phoneFaxRule('Phone', 3),
 
-    phone2: Yup.string().test(
-      "phone2_test",
-      "Телефон должен содержать 10 цифр",
-      (value) => {
-        if (value == undefined || (value && value.length === 10)) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    ),
-    phone3: Yup.string().test(
-      "phone3_test",
-      "Телефон должен содержать 10 цифр",
-      (value) => {
-        if (value == undefined || (value && value.length === 10)) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    ),
-
-    fax1: Yup.string().test(
-      "fax1_test",
-      "Номер факса должен содержать 10 цифр",
-      (value) => {
-        if (value == undefined || (value && value.length === 10)) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    ),
-
-    fax2: Yup.string().test(
-      "fax2_test",
-      "Номер факса должен содержать 10 цифр",
-      (value) => {
-        if (value == undefined || (value && value.length === 10)) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    ),
-
-    fax3: Yup.string().test(
-      "fax3_test",
-      "Номер факса должен содержать 10 цифр",
-      (value) => {
-        if (value == undefined || (value && value.length === 10)) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    ),
-
-    fax4: Yup.string().test(
-      "fax4_test",
-      "Номер факса должен содержать 10 цифр",
-      (value) => {
-        if (value == undefined || (value && value.length === 10)) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    ),
-
-
+    fax1: phoneFaxRule('Fax', 1).required(t('Enter your fax number')),
+    fax2: phoneFaxRule('Fax', 2),
+    fax3: phoneFaxRule('Fax', 3),
+    fax4: phoneFaxRule('Fax', 4),
 
     defaultFax: Yup.string().when(['fax1', 'fax2'], (faxFields, schema) => {
       const [fax1, fax2] = faxFields;
@@ -98,7 +38,7 @@ function validate() {
           // Поле defaultFax обязательно, если заполнено поле fax1 или fax2
           return (fax1 || fax2) ? !!value : true;
         },
-        message: 'Ошибка: Не выбран факс по умолчанию!',
+        message: t('Error: No default fax selected!'),
       });
     }),
 });

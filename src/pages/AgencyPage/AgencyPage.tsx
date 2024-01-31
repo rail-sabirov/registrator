@@ -1,4 +1,3 @@
-import LanguageSelector from '../../components/LanguageSelector/LanguageSelector';
 import cn from 'classnames';
 import { useState } from 'react';
 import AgencyEdit from '../../components/AgencyEdit/AgencyEdit';
@@ -20,7 +19,7 @@ const AgencyPage = ({ agency = {} }: AgencyPageProps) => {
         {editMode
           ? <>
             <Button type="button" onClick={() => setEditMode(false)}>{t('ExitEditMode')}</Button>
-            <h2>{t('AgencyEditPage')}</h2>
+            <h2 className={styles['h2']}>{t('AgencyEditPage')}</h2>
             <AgencyEdit />
           </>
           : <>
@@ -32,7 +31,7 @@ const AgencyPage = ({ agency = {} }: AgencyPageProps) => {
 
         <hr />
         <div className="agency-deatails">
-          <h2>Отправленные факсы</h2>
+          <h2 className={styles['h2']}>Отправленные факсы</h2>
           <p>Здесь выводятся детали Агенства если оно уже использовалось для отправки факса</p>
         </div>
       </div>

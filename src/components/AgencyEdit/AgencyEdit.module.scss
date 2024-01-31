@@ -1,4 +1,4 @@
-@import '/style-vaiables.scss';
+@import '/style-variables.scss';
 @import '/common-classes.module.scss';
 
 @mixin groupBorderAndTitle {
@@ -38,9 +38,13 @@
     padding: 0.4rem;
     border-radius: 0.3rem;
     margin-bottom: 2rem;
-
 }
 
+.error-block-selector {
+    border-radius: 0.5rem;
+    border: 2px dashed rgb(255, 201, 201);
+    padding: 1rem 1rem 0.5rem 1rem;
+}
 
 form {
     @include formRow;
@@ -205,7 +209,20 @@ form {
                     cursor: pointer;
 
                     &.radio-input-filled {
-                        outline: 2px dashed red;
+                        outline: none;
+                        position: relative;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            border: 2px dashed $errorDashedBorderColor;
+                            border-radius: 6px;
+                            width: inherit;
+                            height: inherit;
+                            left: -.46rem;
+                            top: -.46rem;
+                            padding: .4rem;
+                        }
                     }
                 }
 

@@ -1,4 +1,4 @@
-@import '/style-vaiables.scss';
+@import '/style-variables.scss';
 
 .agency-page {
 	display: flex;
@@ -13,4 +13,10 @@
 
 	&.new-agency {}
 
+}
+
+.h2 {
+	margin-top: 0;
+	margin-bottom: 2rem;
+	text-transform: uppercase;
 }
