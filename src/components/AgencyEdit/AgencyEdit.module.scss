@@ -83,7 +83,7 @@ form {
     .main {
         display: grid;
         grid-template-columns: auto 1fr;
-        gap: 10px;
+        gap: 1rem;
 
         border: 1px solid $borderColor;
         border-radius: $borderRadius;
