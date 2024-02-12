@@ -15,6 +15,11 @@
         background-color: transparent;
         padding: 2px 15px 4px;
         border-radius: $borderRadius;
+        border: 1px solid $colorWhite;
+
+        &:hover {
+            border: 1px solid #696cff29;
+        }
 
         &.active {
             background-color: rgba(105, 108, 255, 0.16);
