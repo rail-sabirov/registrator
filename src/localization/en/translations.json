@@ -46,5 +46,6 @@
   "Enter the Agency Name": "Required field. Enter fax number",
   "The agency name must contain at least 3 letters": "The agency name must contain at least 3 letters",
   "Enter Email": "Enter Email",
-  "Error: No default fax selected!": "Error: No default fax selected!"
+  "Error: No default fax selected!": "Error: No default fax selected!",
+  "Language switcher": "Language switcher"
 }

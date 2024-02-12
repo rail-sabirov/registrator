@@ -5,41 +5,33 @@ import { useEffect, useState } from 'react';
 
 const LanguageSelector = () => {
     const key = 'language';
-    const langs = {
-        'true': 'en',
-        'false': 'ru'
-    };
+    const { i18n, t } = useTranslation();
+    const [lang, setLang] = useState('en');
 
-    const { i18n } = useTranslation();
-    const [checkbox, setCheckbox] = useState(false);
+    type Languages = 'en' | 'ru';
 
-    const changeLang = () => {
-        setCheckbox(!checkbox);
-        i18n.changeLanguage(langs[checkbox.toString()]);
-        localStorage.setItem(key, langs[checkbox.toString()]);
+
+    const changeLang = (lang: Languages) => {
+        i18n.changeLanguage(lang);
+        localStorage.setItem(key, lang);
+        setLang(lang);
     };
 
     useEffect(() => {
-        const lang = localStorage.getItem("language");
-        if (lang && lang.toString() == "ru") {
-            setCheckbox(true);
+        const lng = localStorage.getItem("language");
+
+        if (lng) {
+            setLang(lng.toString());
         }
     }, []);
 
     return (
         <div className={styles['language-selector']}>
-            <span className={styles['language-label']}>English</span>
-            <label className={styles['switch']}>
-                <input type="checkbox"
-                    onChange={changeLang}
-                    checked={checkbox}
-                    name="language-switcher-01"
-                />
-                <span
-                    className={cn(styles['slider'], styles['round'])}
-                ></span>
-            </label>
-            <span className={styles['language-label']}>Русский</span>
+            <img src="/public/language_icon.svg" alt="language switcher" title={t('Language switcher')}/>
+            <ul className={styles['lang-menu']}>
+                <li onClick={() => changeLang('en')} className={cn(styles['lang-item'], { [styles['checked']]: lang === 'en' })}>English</li>
+                <li onClick={() => changeLang('ru')} className={cn(styles['lang-item'], { [styles['checked']]: lang === 'ru' })}>Русский</li>
+            </ul>
         </div>
     );
 }

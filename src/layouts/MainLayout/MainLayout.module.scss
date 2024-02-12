@@ -6,26 +6,25 @@
     flex-direction: column;
 
     header {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
+        display: grid;
         justify-content: space-between;
-        align-items: center;
         min-width: 100vw;
-        padding: 0 1rem;
-        box-shadow: $boxShadow;
         background-color: $colorWhite;
+        box-shadow: $boxShadow;
+        padding: 0 1rem;
+        grid-template-columns: 1fr auto 1fr;
         height: 50px;
 
-        .user {
+        .lang-user-block {
             display: flex;
             align-items: center;
             cursor: pointer;
 
             gap: 0.5rem;
             margin-inline-end: 1rem;
+            justify-content: flex-end;
 
-            .user-icon {
+            .user-block {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -42,8 +41,6 @@
             .user-name {
                 color: $textColor;
             }
-
-
         }
     }
 

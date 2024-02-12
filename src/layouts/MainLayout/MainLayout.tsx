@@ -28,12 +28,10 @@ const MainLayout = () => {
                 <Logo type='logo-main-layout' />
 
                 <MainMenu />
-                <div className={styles["user"]}>
+                <div className={styles["lang-user-block"]}>
                     <LanguageSelector />
-                    <div className={styles["user-icon"]}>
+                    <div className={styles["user-block"]}>
                         <img src="/public/user-w-icon.svg" alt="User Icon" />
-                    </div>
-                    <div className={styles["user-name"]}>
                         User Name
                     </div>
                 </div>
