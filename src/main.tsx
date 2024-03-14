@@ -9,6 +9,7 @@ import FaxPage from './pages/FaxPage/FaxPage.tsx'
 import MainLayout from './layouts/MainLayout/MainLayout.tsx'
 import { RequireAuth } from './helpers/RequireAuth.tsx'
 import AgencyPage from './pages/AgencyPage/AgencyPage.tsx'
+import { AgencyListPage } from './pages/AgencyListPage/AgencyListPage.tsx'
 
 
 const router = createBrowserRouter([
@@ -30,12 +31,14 @@ const router = createBrowserRouter([
       },
       {
         path: "agencies",
-        element: <h1>Agency List Page</h1>,
+        element: <AgencyListPage />,
       },
       {
         path: "agencies/new",
         element: <AgencyPage agency={null} />,
       },
+
+      // Страница просмотра данных агенства
       {
         path: "agencies/:agencySlug",
         element: <AgencyPage />,
